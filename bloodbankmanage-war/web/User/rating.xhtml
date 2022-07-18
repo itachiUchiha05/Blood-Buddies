@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+    <!--[if !IE]><!--> <!--<![endif]-->
+
+
+    <h:head>
+
+        <ui:include src="include/css.xhtml" />
+
+
+    </h:head>
+    <body> 
+
+        <ui:include src="include/header.xhtml"/>
+
+
+
+        <div class="col-md-3"></div>
+        <center><div class="comments-area col-md-6" id="comments">
+
+
+                <div id="respond">
+
+                    <div class="topic-bold-header clearfix">
+                        <h4>Your Experience in Camp with this Volunteer</h4>
+                    </div> <!-- end .topic-bold-header  -->
+                 
+                      
+
+                            <h:form>
+
+
+                              
+
+                                <div class="form-group">
+
+                                    <p:rating value="#{volapproveBean.rating}" id="rating" required="true" requiredMessage="Please enter your rating"/>    
+                                 <h:message for="rating" style="color: red" />
+                                </div>
+                                
+                                <div class="form-group">
+
+                                    <h:inputTextarea class="form-control" rows="5" id="message" value="#{volapproveBean.message}" pt:placeholder="Message" required="true" requiredMessage="Enter message for volunteer"></h:inputTextarea>                                            
+                                <h:message for="message" style="color: red" />
+                                </div>
+
+                               
+
+                                <div class="form-group">
+                                    <h:commandButton class="btn btn-theme" value="Submit Your Rating" action="#{volapproveBean.insertvolrat_click()}"/>
+                                </div>
+
+                            </h:form>
+
+                        
+               
+
+                </div> <!-- end respond-->
+
+            </div></center>
+
+
+
+       
+
+
+
+
+
+
+
+        <a id="backTop">Back To Top</a>
+
+        <ui:include src="include/bottomscript.xhtml"/>
+    </body>
+
+
+    <!-- Mirrored from templates.bwlthemes.com/blood_donation/v_2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Feb 2022 16:27:23 GMT -->
+</html>

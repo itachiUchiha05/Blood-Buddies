@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+    <!--[if !IE]><!--> <!--<![endif]-->
+
+
+    <head>
+
+        <ui:include src="include/css.xhtml" />
+
+
+    </head>
+    <body> 
+        <ui:include src="include/header.xhtml" />
+
+
+        <div class="comments-area" id="comments">
+                            <a href="#respond" class="article-add-comments"><i class="fa fa-plus"></i></a>         
+                            <div class="topic-bold-header clearfix">
+                                <h4>Blood Request Of Your Blood Group</h4>
+                            </div> <!-- end .topic-bold-header  -->
+                            <ui:repeat value="#{bloodreqBean.showallbloodrequser(reqBloodGrp)}" var="item">
+                                
+                                
+
+                            <ol class="commentslist">
+                                <li>
+                                    <article class="clearfix">
+                                        <header>
+                                            <h5><a href="#">#{item.sname}</a></h5>
+                                            <p><span>#{item.reqDate} - </span><a href="#">Reply</a></p>
+                                        </header>
+
+                                        <figure class="comment-avatar">
+                                            <a href="#">
+                                                <img src="/bloodbankmanage-war/image/#{item.simageid}" style="height: 150px;width: 150px;"/>
+                                            </a>
+                                        </figure>
+
+                                        <p class="waiting-moderation">
+                                            Requested Blood-Group: <h5>#{item.reqBloodGrp}</h5>
+                                        </p>
+
+                                        <div class="comment_text">
+                                            #{item.contact}
+                                        </div>
+
+                                    </article>
+                                </li>
+
+                               
+
+                            </ol>
+                            </ui:repeat>
+                           
+
+                          
+
+                        </div>
+      
+
+
+
+
+        <a id="backTop">Back To Top</a>
+
+        <ui:include src="include/bottomscript.xhtml"/>
+    </body>
+
+
+    <!-- Mirrored from templates.bwlthemes.com/blood_donation/v_2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Feb 2022 16:27:23 GMT -->
+</html>
