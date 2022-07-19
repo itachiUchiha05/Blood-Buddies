@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+    <!--[if !IE]><!--> <!--<![endif]-->
+
+
+    <head>
+
+        <ui:include src="include/css.xhtml" />
+
+
+    </head>
+    <body> 
+
+        <ui:include src="include/header.xhtml"/>
+
+
+
+        <div class="col-md-3"></div>
+        <center><div class="comments-area col-md-6" id="comments">
+
+
+                <div id="respond">
+
+                    <div class="topic-bold-header clearfix">
+                        <h4>Leave a Request</h4>
+                    </div> <!-- end .topic-bold-header  -->
+                 
+                        <form role="form" action="#" method="post" id="comment-form">
+
+                            <h:form>
+
+                                <div class="form-group">
+
+                                    <h:inputHidden class="form-control" id="volIDPK" value="#{volreqBean.volIDPK}"/>                                            
+                                </div>
+
+                                <div class="form-group">
+
+                                    <h:inputText class="form-control" id="emergencycon" value="#{volreqBean.emergencycon}" pt:placeholder="Emergency Contact" required="true" requiredMessage="Please enter your emergency contact"  autocomplete="off"/>  
+                                    <h:message for="emergencycon" style="color: red" />
+                                </div>
+
+                                <div class="form-group">
+
+                                    <h:inputText class="form-control" id="preferedtime" value="#{volreqBean.prefferedtime}" pt:placeholder="Preffered Time" required="true" requiredMessage="Enter your preffered time"  autocomplete="off"/> 
+                                    <h:message for="preferedtime" style="color: red" />
+                                </div>
+                                <div class="form-group">
+
+                                    <h:inputTextarea class="form-control" rows="5" id="expierence" value="#{volreqBean.expierence}" pt:placeholder="Expierence"></h:inputTextarea>    
+                                   
+                                </div>
+
+                                <!--                                    <div class="form-group">
+                                
+                                                                        <textarea class="form-control" rows="5" name="comment" id="comment" placeholder="Write Your Comment"></textarea>
+                                                                    </div>-->
+
+                                <div class="form-group">
+                                    <h:commandButton class="btn btn-theme" value="Submit Request" action="#{volreqBean.insertvolrequser_click()}"/>
+                                </div>
+
+                            </h:form>
+
+                        </form>
+               
+
+                </div> <!-- end respond-->
+
+            </div></center>
+
+
+
+       
+
+
+
+
+
+
+
+        <a id="backTop">Back To Top</a>
+
+        <ui:include src="include/bottomscript.xhtml"/>
+    </body>
+
+
+    <!-- Mirrored from templates.bwlthemes.com/blood_donation/v_2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Feb 2022 16:27:23 GMT -->
+</html>

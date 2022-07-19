@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <Style>
+            #container{background-color:#EF3D32}
+             #logo{color: #EF3D32}
+            </Style>
+          
+        !-- Top Bar -->
+<nav class="navbar" id="container">
+    <div class="col-12">        
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="index.html"><span class="m-l-10" id="logo" style="color: red"><b>BLOOD <span style="color: black">BUDDIES</span></b></span></a>
+        </div>
+        
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>            
+            <li class="hidden-sm-down">
+<!--                <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+                    <span class="input-group-addon">
+                        <i class="zmdi zmdi-search"></i>
+                    </span>
+                </div>-->
+               <div class="input-group">
+                   <a href="searchbloodad.xhtml" class="form-control"><i class="zmdi zmdi-search"></i>   <b>BloodGroup</b></a>
+                    <span class="input-group-addon">
+                   
+                    </span>
+                </div>
+
+
+            </li>
+              <li class="hidden-sm-down">
+<!--                <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+                    <span class="input-group-addon">
+                        <i class="zmdi zmdi-search"></i>
+                    </span>
+                </div>-->
+               <div class="input-group">
+                   <a href="searchcampad.xhtml" class="form-control"><i class="zmdi zmdi-search"></i>   <b>Blood-Camp</b></a>
+                    <span class="input-group-addon">
+                   
+                    </span>
+                </div>
+
+
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+             
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+                    <div class="notify"><span class="heartbit"></span><span class="point">#{camprequestBean.shownoticamp_click().size()}</span></div>
+                </a>
+               
+                <ul class="dropdown-menu dropdown-menu-right slideDown">
+                    <li class="header">NOTIFICATIONS</li>
+                     
+                    <li class="body">
+<!--                        <div class="col-sm-6 col-md-4 col-lg-2">
+                                <button type="button" class="btn btn-raised m-b-10 btn-primary btn-block waves-effect" data-placement-from="top" data-placement-align="right" data-animate-enter="" data-animate-exit="" data-color-name="bg-black"> TOP RIGHT </button>
+                            </div>-->
+                        <ul class="menu list-unstyled">
+                             <h:form>
+                                 <ui:repeat value="#{camprequestBean.shownoticamp_click()}" var="item">
+                                
+                                 <li> <a href="showcampreq.xhtml">
+                                <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>#{item.location},<br/>#{item.cityIDFK.cityName}</b></h4>
+                                    <p><i class="zmdi zmdi-time"></i> Date:- #{item.reqCampDate} </p><br/>
+                                    <p><i class="zmdi zmdi-account"></i> Approx Doner:- #{item.approxDoner} </p>
+                                </div>
+                                </a> </li>
+                           
+                           </ui:repeat>  
+                             </h:form>   
+                        </ul>
+                             
+                                               
+                                            <!--<a class="dropdown-item text-muted text-center" href="">Read all messages</a>-->
+                                       
+                                            
+                    </li>
+                    <h:form> 
+                    <li class="footer">  <h:commandLink action="#{camprequestBean.updatecampnoti_Click()}" class="dropdown-item text-muted text-center" value="Read all messages"> </h:commandLink> </li>
+                    </h:form>
+                </ul>
+                     
+            </li>
+             
+          
+            <li>
+                <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            </li>
+            <li><a href="login2.xhtml" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
+<!--            <li class=""><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>-->
+        </ul>
+    </div>
+
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <div class="menu">
+        <ul class="list">
+            <li>
+             
+                <div class="user-info">
+                    <h:form enctype="multipart/form-data">
+                    <div class="image"><a href="profile.html"><img src="/bloodbankmanage-war/image/#{session.getAttribute('userpic')}" alt="User"/></a></div>
+                    <div class="detail">
+<!--                        <h4>#{session.getAttribute("userName")}</h4>-->
+                                          
+                    </div>
+                      </h:form>
+                    <h:form>
+<!--                    <a href="sign-in.html" title="Sign out"><i class="zmdi zmdi-power"></i></a>-->
+
+      
+                        <h6>#{session.getAttribute('userName')}</h6>
+<h:commandButton class="btn btn-danger" value="Log-Out" action="#{loginManagedBean.logout()}"/>
+                    </h:form>
+                </div>
+            </li>
+            <li class="header">MAIN</li>
+            <li class="active open"> <a href="index.xhtml" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+             
+                
+            </li>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="zmdi zmdi-local-hospital"></i><span><b>BloodBank Manage</b></span> </a>
+           
+            <ul class="ml-menu" style="display: block;">
+                    <li><a href="bloodbank.xhtml" class=" waves-effect waves-block">Add BloodBank</a></li>
+                    <li><a href="showbloodbank.xhtml" class=" waves-effect waves-block">Show BloodBank</a></li>
+                  
+                </ul>
+            <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">location_on</i><span><b>BloodCamp</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+                    <li><a href="bloodcampadd.xhtml" class=" waves-effect waves-block">Add BloodCamp</a></li>
+                    <li><a href="showbloodcamp.xhtml" class=" waves-effect waves-block">Show Bloodcamp</a></li>
+                  
+                </ul>
+            
+            
+   
+                <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">people</i><span><b>User Register</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+                    <li><a href="useradd.xhtml" class=" waves-effect waves-block">Add User</a></li>
+                    <li><a href="showuser.xhtml" class=" waves-effect waves-block">Show User</a></li>
+                  
+                </ul>
+                
+                
+                <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">mood</i><span><b>Donor </b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+<!--                    <li><a href="doneradd.xhtml" class=" waves-effect waves-block">Add Donor</a></li>-->
+                    <li><a href="showdoner.xhtml" class=" waves-effect waves-block">Show Donor</a></li>
+                  
+                </ul>
+                
+                  
+                   
+                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">note_add</i><span><b>Stock Of Unit</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+                    <li><a href="addstock.xhtml" class=" waves-effect waves-block">Add Stock</a></li>
+                    <li><a href="countstock.xhtml" class=" waves-effect waves-block">Show Stock</a></li>
+                  
+                </ul>
+                    
+                      <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">invert_colors</i><span><b>Blood-Requests</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+<!--                    <li><a href="addbloodreq.xhtml" class=" waves-effect waves-block">Add Blood Request</a></li>-->
+                    <li><a href="showbloodreq.xhtml" class=" waves-effect waves-block">Show Blood Request</a></li>
+                  
+                </ul>
+                      
+                      <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">schedule</i><span><b>Camp-Requests</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+<!--                    <li><a href="addcampreq.xhtml" class=" waves-effect waves-block">Add Camp Request</a></li>-->
+                    <li><a href="showcampreq.xhtml" class=" waves-effect waves-block">Show Camp Request</a></li>
+                  
+                </ul>
+                      
+                       <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">person_pin</i><span><b>Volunteer Requests</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+<!--                    <li><a href="addvolreq.xhtml" class=" waves-effect waves-block">Add Volunteer Request</a></li>-->
+                    <li><a href="showvolreq.xhtml" class=" waves-effect waves-block">Show Volunteer Request</a></li>
+                  
+                </ul>
+                       <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">thumb_up</i><span><b>Volunteer Approve</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+                    <li><a href="addvolap.xhtml" class=" waves-effect waves-block">Add Volunteer Approve</a></li>
+                    <li><a href="showvolap.xhtml" class=" waves-effect waves-block">Show Volunteer Approve</a></li>
+                  
+                </ul>
+                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block toggled"><i class="material-icons">star</i><span><b>Volunteer Ratings</b></span> </a>
+             <ul class="ml-menu" style="display: block;">
+<!--                    <li><a href="addvolrat.xhtml" class=" waves-effect waves-block">Add Volunteer Rating</a></li>-->
+                    <li><a href="showvolrat.xhtml" class=" waves-effect waves-block">Show Volunteer Rating</a></li>
+                  
+                </ul>
+                        
+                       
+                      
+                      
+         
+         
+        </ul>
+    
+   
+
+   
+       
+    </div>
+</aside>
+    </h:body>
+</html>
+

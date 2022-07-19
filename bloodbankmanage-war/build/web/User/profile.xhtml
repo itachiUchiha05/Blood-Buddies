@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <!--<![endif]-->
+
+    
+<head>
+
+   <ui:include src="include/css.xhtml" />
+
+
+</head>
+    <body> 
+        <ui:include src="include/header.xhtml" />
+        <div class="col-md-3"></div>
+        <div class="widget site-sidebar col-md-6" style="background-color: #ffe8e7">
+        
+            <h2 class="widget-title" style="color: #DB4437"><u>PROFILE</u></h2><br/><br/>
+                            
+                             
+                           
+                                   <div class="single-recent-post">
+                                 <a href="#"  style="font-size: 20px">UserName</a>
+                                <span style="font-size: 25px"> <i class="fa fa-user icon-color"></i>&nbsp; #{session.getAttribute("userName")}</span>
+                            </div>
+                                 
+                                  <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Age</a>
+                                <span style="font-size: 25px"><i class="fa fa-asterisk icon-color"></i>&nbsp; #{session.getAttribute("userAge")}</span>
+                            </div>
+                                 
+                                 <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Gender</a>
+                                <span style="font-size: 25px"> <i class="fa fa-user icon-color"></i>&nbsp; #{session.getAttribute("userGender")}</span>
+                            </div>
+                                 
+                                 <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Email</a>
+                                <span style="font-size: 25px"><i class="fa fa-envelope icon-color"></i>&nbsp; #{session.getAttribute("userEmail")}</span>
+                            </div>
+                                 <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Password</a>
+                                <span style="font-size: 25px"><i class="fa fa-edit icon-color"></i>&nbsp; #{session.getAttribute("userPassword")}</span>
+                            </div>
+                                 
+                                 <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Blood Group</a>
+                                <span style="font-size: 25px"><i class="fa fa-user-plus icon-color"></i>&nbsp; #{session.getAttribute("userBloodGrp")}</span>
+                            </div>
+                                 <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Mobile no</a>
+                                <span style="font-size: 25px"><i class="fa fa-mobile icon-color"></i>&nbsp; #{session.getAttribute("userContact")}</span>
+                            </div>
+                                 <div class="single-recent-post">
+                                <a href="#"  style="font-size: 20px">Location</a>
+                                <span style="font-size: 25px"><i class="fa fa-location-arrow icon-color"></i>&nbsp; #{session.getAttribute("userLocation")}</span>
+                             
+                                 </div>
+                            
+                            
+                                 
+<!--                                 <div class="single-recent-post">
+                                <a href="#"></a>
+                                <span style="font-size: 500px"><i class="fa fa-user icon-color"></i>&nbsp; #{session.getAttribute("cityIDFK.cityName")}</span>
+                            </div>-->
+
+        </div>
+        
+        <section class="section-content-block section-secondary-bg">
+
+            <div class="container wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                
+                <div class="row section-heading-wrapper">
+
+                    <div class="">
+                
+                        <h:form>
+                            <div class="col-md-4"></div>
+                            <h:dataTable class="table-responsive-md" value="#{volreqBean.filvolireqByuserID()}" var="item" border="2">
+                             <h:column>
+                                <f:facet name="header"></f:facet>
+                                
+                                
+                              
+                              <h:commandLink action="#{volreqBean.isAvailable_Click(item.volIDPK, item.status == 0 ? '1' : item.status == 1 ? '2' : item.status == 2 ? '1'  : '0')}" class=" #{item.status == 0 ? 'btn btn-info waves-effect waves-light ' :item.status == 1 ? 'btn btn-success waves-effect waves-light' :  'btn btn-danger waves-effect waves-light'}" style="padding: 11px;"><i class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>#{item.status == 0 ? 'Your Request is pending please wait till admin reply your request ' :item.status == 1 ? 'Congratulations your request Has been approved' :  'Sorry you cant able to volunteer in camp but We appreciate your effort, try another time'}</h:commandLink>
+
+                               
+<!--                              bx bx-loader bx-spin font-size-16 align-middle me-2-->
+                      
+                          
+                                
+                        </h:column>
+                        </h:dataTable>
+                        </h:form>
+                    </div> <!-- end .col-sm-12  --> 
+                    
+                </div>
+                
+             
+
+            </div> <!--  end .container  -->
+
+        </section>
+
+        
+        
+     
+       
+  
+
+        <a id="backTop">Back To Top</a>
+
+        <ui:include src="include/bottomscript.xhtml"/>
+    </body>
+
+
+<!-- Mirrored from templates.bwlthemes.com/blood_donation/v_2/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Feb 2022 16:27:23 GMT -->
+</html>

@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+   <meta charset="utf-8"/>  
+           <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+            <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+            <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit."/>
+<title>:: Compass Bootstrap4 Admin ::</title>
+            <link rel="icon" href="favicon.ico" type="image/x-icon"/> <!-- Favicon-->
+            <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
+            <link rel="stylesheet" href="assets/plugins/morrisjs/morris.min.css" />
+            <!-- Custom Css -->
+            <link rel="stylesheet" href="assets/css/main.css"/>
+            <link rel="stylesheet" href="assets/css/color_skins.css"/>
+            <link rel="icon" href="favicon.ico" type="image/x-icon" />
+            <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<!-- Favicon-->
+
+<!-- Bootstrap Material Datetime Picker Css -->
+<link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<!-- Bootstrap Select Css -->
+<link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+<!-- Custom Css -->    </h:head>
+    
+    
+    <h:body>
+        
+        <Style>
+            #container{background-color:#EF3D32}
+             #logo{color: #EF3D32}
+            </Style>
+        <body class="theme-cyan authentication sidebar-collapse">
+<!-- Navbar -->
+
+
+
+    
+
+
+        <h:form>
+        
+                 <div class="page-header">
+    <div class="page-header-image bigEntrance" style="background-image:url(assets/images/bbimage.jpg)"></div>
+    <div class="container">
+        <div class="col-md-12 content-center">
+              
+            <div class="card-plain">
+              
+                    <div class="header">
+                        <div class="bigEntrance">
+<!--                            <img src="" style="height: 200px; width: 500px;"/>-->
+<h2><b style="color: red">BLOOD </b> <b style="color: black">BUDDIES</b></h2>
+                        </div>
+                        <h5>Log in</h5>
+                    </div>
+               
+                    <div class="content">                                                
+                        <div class="input-group input-lg bigEntrance">
+            
+                            <h:inputText class="form-control " id="useremail" value="#{loginManagedBean.useremail}" autocomplete="off"/>
+            <span class="input-group-addon">
+                                <i class="zmdi zmdi-email"></i>
+                            </span>
+                        </div>
+                        <div class="input-group input-lg bigEntrance">
+            
+                            <h:inputSecret class="form-control " id="password" value="#{loginManagedBean.password}"/>
+            <span class="input-group-addon">
+                                <i class="zmdi zmdi-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+            
+              <div class="footer text-center">
+              <h:commandButton class="btn btn-primary bigEntrance" value="LOGIN" action="#{loginManagedBean.login()}"/>
+              </div>
+                
+                <h6 class="m-t-20"><a href="loginemail.xhtml" class="link">Forgot Password?</a></h6>
+                
+                <h6 class="m-t-20"><a href="User/register.xhtml" class="link">Regiester Now</a></h6>
+                
+            </div>
+        </div>
+    </div>
+                 </div>
+            
+            
+        </h:form>
+
+
+        </body>
+
+<script src="assets/bundles/libscripts.bundle.js"></script>
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+    </h:body>
+</html>
+

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+       xmlns:p="http://primefaces.org/ui">
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <!--<![endif]-->
+
+    
+<h:head>
+
+   <ui:include src="include/css.xhtml" />
+
+
+</h:head>
+    <body> 
+
+        <div id="preloader">
+            <span class="margin-bottom"><img src="assets/images/loader.gif" alt="" /></span>
+        </div>
+
+        <!--  HEADER -->
+
+        <ui:include src="include/header.xhtml"/>
+
+  
+
+        <section class="section-content-block section-secondary-bg">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-6 wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;">
+
+                        <div class="contact-form-block">
+
+                            <h2 class="contact-title">Make Request if you want to organize Blood-Camp in your Area</h2>
+
+                            <form role="form" action="#" method="post" id="contact-form">
+                              <h:form>
+                                  
+                                  <div class="form-group">
+                                      <h:inputHidden id="campreqid" value="#{camprequestBean.campreqIDPK}"/>
+                                  </div>
+
+                                  
+                                <div class="form-group">
+                                    <h:inputText class="form-control" id="location" value="#{camprequestBean.location}" pt:placeholder="Enter Adress for Camp" required="true" requiredMessage="Enter Address of camp"  autocomplete="off"/>
+                                    <h:message for="location" style="color: red" />
+                                </div>
+                                  
+                                   <div class="form-group">
+                            <label for="">State</label>
+                            <h:selectOneMenu class="form-control" id="state" value="#{camprequestBean.stateIDFK}" required="true" requiredMessage="Enter your state">
+                                                                <f:selectItem itemLabel="--Select--"></f:selectItem>
+                                                                <f:selectItems value="#{camprequestBean.stateList}" var="state" itemValue="#{state.stateIDPK}" itemLabel="#{state.stateName}"/>
+                                                                <f:ajax listener="#{camprequestBean.fillCity()}" render="city"/>
+                                                            </h:selectOneMenu>
+                            <h:message for="state" style="color: red" />
+                            </div>
+                             <label for="">City</label>
+                            
+                             <div class="form-group">
+                                 <h:selectOneMenu value="#{camprequestBean.cityIDFK}" id="city" class="form-control" required="true" requiredMessage="Enter your city" >
+                                     
+                                 <f:selectItems value="#{camprequestBean.cityList}" var="city" itemValue="#{city.cityIDPK}" itemLabel="#{city.cityName}" />
+                                   </h:selectOneMenu>
+                                 <h:message for="city" style="color: red" />
+                             </div>
+ 
+                             
+                               
+                                   
+                            <div class="form-group">
+                                
+                                 <label for="">Approx Donor</label><br/>
+                                 <p:spinner id="approxdoner" value="#{camprequestBean.approxdoner}"  min="0" max="1000" stepFactor="10" round="true"/>
+                            </div>
+                               
+                                
+
+                                <div class="form-group">
+                                    <h:commandButton class="btn btn-theme" value="REQUEST" action="#{camprequestBean.insertcamprequestuser_click()}"/>
+                                </div>
+                               
+                              </h:form>
+                            </form>
+
+                        </div> <!-- end .contact-form-block  -->
+
+                    </div> <!--  end col-sm-6  -->
+
+                                     
+
+                </div> <!-- end row  -->
+
+            </div> <!--  end .container -->
+
+        </section>
+       
+
+        
+
+        <a id="backTop">Back To Top</a>
+
+        <ui:include src="include/bottomscript.xhtml"/>
+    </body>
+
+
+</html>

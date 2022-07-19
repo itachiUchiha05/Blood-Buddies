@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <!--<![endif]-->
+
+    
+<h:head>
+
+   <ui:include src="include/css.xhtml" />
+
+
+</h:head>
+    <body> 
+
+        <div id="preloader">
+            <span class="margin-bottom"><img src="assets/images/loader.gif" alt="" /></span>
+        </div>
+
+        <!--  HEADER -->
+
+        <ui:include src="include/header.xhtml"/>
+
+  
+
+        <section class="section-content-block section-secondary-bg">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-2"></div>
+<div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 margin-center-appointment-reverse"> 
+<!--    <div class="col-lg-10 col-md-4 col-sm-12 col-xs-12 margin-center-appointment-reverse"> -->
+
+                 
+
+                        <div class="appointment-form-wrapper theme-custom-box-shadow text-center clearfix wow zoomIn">
+                            <h3 class="join-heading join-heading-alt">Registration</h3>
+                          
+                                <h:form enctype="multipart/form-data">
+                                    <h:inputHidden id="userIDPK" value="#{userBean.userIDPK}"/>
+                                    
+                                     <div class="form-group col-md-6">
+                                         <h:inputText class="form-control" id="username" value="#{userBean.username}" pt:placeholder="Enter Your Full name"  required="true" requiredMessage="Please enter full name"  autocomplete="off"/>
+                                         
+                                              <h:message for="username" style="color: red" />
+                                     </div>
+                            
+                                                          
+                                     
+                                      <div class="form-group col-md-6">
+                                          <h:inputText class="form-control" id="userage" value="#{userBean.userage}" pt:placeholder="Age" required="true" requiredMessage="Please enter your age"  autocomplete="off"/>
+                                            <h:message for="userage" style="color: red" />
+                                     </div>
+                                     
+                                     <div class="form-group col-md-6">      
+                                   <p:selectOneRadio  id="gender" value="#{userBean.usergender}" required="true" requiredMessage="Enter gender">
+                                       <f:selectItem  itemLabel="Male" itemValue="Male" class="form-control" /> 
+                                      <f:selectItem itemLabel="Female" itemValue="Female" class="form-control"/>
+                                    <f:selectItem itemLabel="Other" itemValue="Other" class="form-control"/>
+                                   </p:selectOneRadio>
+                                  <p:message for="gender" style="color: red" />
+                            </div>
+                                     
+                                      <div class="form-group col-md-6">
+                                          <h:inputText class="form-control" id="useremail" value="#{userBean.useremail}" pt:placeholder="Email" required="true" requiredMessage="Please enter your email"  autocomplete="off"/>
+                                         <h:message for="useremail" style="color: red" />
+                                     </div>
+                                     
+                                      <div class="form-group col-md-6">
+                                          <h:inputText class="form-control" id="userpassword" value="#{userBean.userpassword}" pt:placeholder="Password" required="true" requiredMessage="Please enter password"  autocomplete="off"/>
+                                          <h:message for="userpassword" style="color: red" />
+                                     </div>
+                                     
+                                      <div class="form-group col-md-6">
+                                          <h:selectOneMenu value="#{userBean.userbloodgrp}" id="userbloodgrp" class="select2-choice form-control" required="true" requiredMessage="Please enter BloodGroup">
+                                                                <f:selectItem itemLabel="Select"></f:selectItem>
+                                                                <f:selectItem itemValue="A+" itemLabel="A+"/>
+                                                                <f:selectItem itemValue="A-" itemLabel="A-"/>
+                                                                <f:selectItem itemValue="B+" itemLabel="B+"/>
+                                                                <f:selectItem itemValue="B-" itemLabel="B-"/>
+                                                                <f:selectItem itemValue="O+" itemLabel="O+"/>
+                                                                <f:selectItem itemValue="O-" itemLabel="O-"/>
+                                                                <f:selectItem itemValue="AB+" itemLabel="AB+"/>
+                                                                <f:selectItem itemValue="AB-" itemLabel="AB-"/>
+                                                                     
+                                                            </h:selectOneMenu>     
+                                            <h:message for="userbloodgrp" style="color: red" />
+                                      </div>
+                                    
+                                     <div class="form-group col-md-6">
+                                         <h:inputText class="form-control" id="usercontact" value="#{userBean.usercontact}" pt:placeholder="Contact" required="true" requiredMessage="Please enter your contact number"  autocomplete="off"/>
+                                         <h:message for="usercontact" style="color: red" />
+                                     </div>
+                                     
+                                      <div class="form-group col-md-6">
+                                          <h:inputText class="form-control" id="userlocation" value="#{userBean.userlocation}" pt:placeholder="Location" required="true" requiredMessage="Please enter your location"  autocomplete="off"/>
+                                          <h:message for="userlocation" style="color: red" />
+                                     </div>
+                                     
+                                  
+                                     
+                                      <div class="form-group col-md-6">
+                                          <h:selectOneMenu class="form-control" id="state" value="#{userBean.stateIDFK}" pt:placeholder="--Select State--" required="true" requiredMessage="Please enter your state">
+                                              <f:selectItem itemLabel="--Select--"></f:selectItem>
+                                              <f:selectItems value="#{userBean.stateList}" var="state" itemValue="#{state.stateIDPK}" itemLabel="#{state.stateName}"/>
+                                                                <f:ajax listener="#{userBean.fillCity()}" render="city"/>
+                                                            </h:selectOneMenu>
+                                          <h:message for="state" style="color: red" />
+                                     </div>
+                                     <br/><br/>
+                                       <div class="form-group col-md-6">
+                                          <h:selectOneMenu value="#{userBean.cityIDFK}" id="city" class="form-control" pt:placeholder="--Select City--" required="true" requiredMessage="Please enter your city">
+                                     
+                                                  <f:selectItems value="#{userBean.cityList}" var="city" itemValue="#{city.cityIDPK}" itemLabel="#{city.cityName}" />
+                                                  </h:selectOneMenu>
+                                                  <h:message for="city" style="color: red" /> <br/><br/>
+                                      </div>
+                                     
+                                    
+                                     <div class="form-group col-md-6">
+                                          
+                                         <h:inputFile class="form-control" id="pic" value="#{userBean.file}" required="true" requiredMessage="Please enter your profile phtot"/>
+                                     <h:message for="pic" style="color: red" />
+                                     </div>
+                                     
+                                     
+                                    
+                                     <div class="form-group col-md-19 col-sm-16 col-xs-19">
+                                         
+                                      <h:commandButton class="btn btn-theme" value="SUBMIT" action="#{userBean.insertuser_click()}"/>
+                                         
+                                </div>
+                                  
+                                     
+                                  
+                           
+                                     
+<!--                                <div class="form-group col-md-6">
+                                    <input id="your_name" class="form-control" placeholder="Name" type="text"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input id="your_email" class="form-control" placeholder="Email" type="email"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input id="your_phone" class="form-control" placeholder="Phone" type="text"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="select-style">                                    
+                                        <select class="form-control" name="your_center">
+                                            <option>Donation Center</option>
+                                            <option>Los Angles</option>
+                                            <option>California</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <input id="your_date" class="form-control" placeholder="Date" type="text"/>
+                                </div>
+
+
+                                <div class="form-group col-md-6">
+                                    <input id="your_time" class="form-control" placeholder="Time" type="text"/>
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <textarea id="textarea_message" class="form-control" rows="4" placeholder="Your Message..."></textarea>
+                                </div>         
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <button id="btn_submit" class="btn btn-theme" type="submit">Get Appointment</button>
+                                </div>-->
+                                </h:form>
+                           
+                        </div> <!-- end .appointment-form-wrapper  -->
+
+                    </div> <!--  end .col-lg-6 -->
+
+                </div> <!--  end .row  -->
+                
+
+
+            </div> <!--  end .container -->
+
+        </section>  <!--  end .appointment-section  -->
+        
+       
+
+        
+
+        <a id="backTop">Back To Top</a>
+
+        <ui:include src="include/bottomscript.xhtml"/>
+    </body>
+
+
+</html>
